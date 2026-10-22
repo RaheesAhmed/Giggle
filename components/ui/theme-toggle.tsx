@@ -2,23 +2,24 @@
 
 import * as React from "react"
 import { useTheme } from "next-themes"
+import { Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Sparkles } from "lucide-react"
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+  React.useEffect(() => setMounted(true), [])
 
-  // Since we're only using light theme, this component will just set the theme to light
-  // But we've updated the icon to match our branding
+  const isDark = mounted && resolvedTheme === "dark"
+
   return (
     <Button
       variant="ghost"
       size="icon"
-      onClick={() => setTheme("light")}
-      className="text-primary hover:text-accent transition-colors"
+      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
     >
-      <Sparkles className="h-5 w-5" />
-      <span className="sr-only">Giggle Theme</span>
+      {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
     </Button>
   )
 }

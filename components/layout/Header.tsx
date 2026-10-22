@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/layout/Logo";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { navLinks } from "@/components/layout/nav-links";
 
@@ -35,6 +36,7 @@ export function Header() {
         </form>
 
         <div className="ml-auto flex items-center gap-2 lg:ml-0">
+          <ThemeToggle />
           <Button asChild variant="ghost" className="hidden md:inline-flex">
             <Link href="/login">Log in</Link>
           </Button>
