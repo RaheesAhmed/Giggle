@@ -8,7 +8,7 @@ import { navLinks } from "@/components/layout/nav-links";
 
 export function Header() {
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-lg">
+    <header className="fixed top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4">
         <Logo className="mr-4" />
 
@@ -17,7 +17,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-foreground/70 transition-colors hover:bg-accent hover:text-accent-foreground"
+              className="rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
             >
               {link.label}
             </Link>
@@ -25,13 +25,13 @@ export function Header() {
         </nav>
 
         <form action="/browse" className="relative ml-auto hidden max-w-xs flex-1 lg:block">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <input
             type="search"
             name="q"
-            placeholder="Search skills, stacks, projects"
+            placeholder="Search for any service"
             aria-label="Search"
-            className="h-10 w-full rounded-xl border border-border bg-card pl-9 pr-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+            className="h-10 w-full rounded-full border border-border bg-secondary pl-10 pr-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </form>
 

@@ -5,18 +5,18 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background aria-invalid:ring-destructive/20 aria-invalid:border-destructive active:translate-y-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background aria-invalid:ring-destructive/20 aria-invalid:border-destructive active:translate-y-0",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-md shadow-primary/25 hover:-translate-y-px hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/30",
+          "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-sm",
         highlight:
-          "bg-highlight text-highlight-foreground shadow-md shadow-highlight/30 hover:-translate-y-px hover:brightness-95 hover:shadow-lg hover:shadow-highlight/40",
+          "bg-accent text-accent-foreground hover:bg-accent/70",
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive hover:text-white focus-visible:ring-destructive/30",
         outline:
-          "border-[1.5px] border-primary/40 bg-transparent text-primary hover:border-primary hover:bg-accent",
+          "border border-border bg-transparent text-primary hover:bg-accent",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-muted",
         ghost:
@@ -25,8 +25,8 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-10 px-5 has-[>svg]:px-4",
-        sm: "h-9 gap-1.5 rounded-lg px-3.5 has-[>svg]:px-3",
-        lg: "h-12 px-7 text-base has-[>svg]:px-6",
+        sm: "h-9 gap-1.5 rounded-full px-3.5 has-[>svg]:px-3",
+        lg: "h-12 px-8 text-base has-[>svg]:px-6",
         icon: "size-10",
       },
     },
