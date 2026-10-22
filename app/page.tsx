@@ -3,199 +3,116 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
   BadgeCheck,
-  Check,
-  FileX2,
-  GitCommitHorizontal,
-  GitFork,
-  Github,
-  Lock,
+  Code2,
+  Megaphone,
+  PenLine,
+  Palette,
+  Video,
+  BarChart3,
+  Headphones,
+  Languages,
   Search,
   ShieldCheck,
   Star,
   Wallet,
-  X,
   Zap,
+  Check,
+  MessageSquare,
 } from "lucide-react";
 
-const languages = [
-  { name: "TypeScript", pct: 62, color: "bg-blue-500" },
-  { name: "Python", pct: 24, color: "bg-amber-400" },
-  { name: "Rust", pct: 14, color: "bg-orange-600" },
-];
-
-const repos = [
-  { name: "realtime-chat", desc: "WebSocket chat engine, 12k msgs/sec", lang: "TypeScript", stars: "1.2k", forks: "184" },
-  { name: "ml-pipeline", desc: "Training pipeline with auto-eval", lang: "Python", stars: "640", forks: "91" },
+const categories = [
+  { icon: Code2, name: "Programming & Tech", sub: "Web, mobile, AI, DevOps" },
+  { icon: Palette, name: "Design & Creative", sub: "Brand, UI/UX, illustration" },
+  { icon: Megaphone, name: "Marketing", sub: "SEO, social, performance" },
+  { icon: PenLine, name: "Writing & Translation", sub: "Copy, content, editing" },
+  { icon: Video, name: "Video & Animation", sub: "Editing, motion, explainers" },
+  { icon: BarChart3, name: "Data & Analytics", sub: "Dashboards, research, BI" },
+  { icon: Headphones, name: "Support & Admin", sub: "Virtual assistants, ops" },
+  { icon: Languages, name: "Voice & Audio", sub: "Voice-over, music, podcasts" },
 ];
 
 const steps = {
-  developers: [
-    { title: "Connect GitHub", text: "One click. We import your repos, languages and activity." },
-    { title: "Your profile builds itself", text: "Pinned projects, commit history and stack stay live. No resume to write or update." },
-    { title: "Get hired, get paid", text: "Accept offers, deliver, and keep 90% of every payment." },
-  ],
   clients: [
-    { title: "Post a project or search", text: "Filter by stack, activity, availability and rate." },
-    { title: "Judge real work", text: "Read the actual code, commits and shipped projects before you message anyone." },
-    { title: "Pay when it's done", text: "Funds sit in escrow and release when you approve the work." },
+    ["Post your project", "Describe what you need, your budget and timeline. It takes about five minutes."],
+    ["Compare proposals", "Review portfolios, rates and reviews. Chat with the people you like before you decide."],
+    ["Pay when it's done", "Funds are held in escrow and released only when you approve the work."],
+  ],
+  freelancers: [
+    ["Build your profile", "Showcase your best work, set your rate and choose the services you offer."],
+    ["Win projects", "Send proposals to briefs that fit, or let clients find you through search."],
+    ["Get paid fast", "Keep 90% of every project. Payouts arrive within 24 hours of approval."],
   ],
 };
 
-const compare = [
-  { label: "Proof of skill", giggle: "Live GitHub code and activity", other: "Self-written claims and reviews" },
-  { label: "Profile setup", giggle: "One click, always up to date", other: "Hours writing a resume" },
-  { label: "Platform fee", giggle: "Flat 10%", other: "Often 20% or more" },
-  { label: "Payout", giggle: "Within 24 hours", other: "Days or weeks on hold" },
-  { label: "Built for", giggle: "Developers and their clients", other: "Every job under the sun" },
+const talent = [
+  { initials: "SM", name: "Sara Malik", role: "Brand & UI designer", rate: 45, rating: "5.0", jobs: 86 },
+  { initials: "DO", name: "Daniel Okafor", role: "Full-stack developer", rate: 60, rating: "4.9", jobs: 124 },
+  { initials: "LP", name: "Lucía Pérez", role: "Content strategist", rate: 35, rating: "4.9", jobs: 97 },
 ];
 
 export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="relative overflow-hidden px-4 pb-20 pt-32 md:pt-36">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_70%_0%,color-mix(in_srgb,var(--primary)_16%,transparent),transparent),radial-gradient(40%_40%_at_0%_30%,color-mix(in_srgb,var(--highlight)_10%,transparent),transparent)]"
-        />
-        <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
-          <div className="min-w-0">
-            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-accent px-3.5 py-1.5 text-sm font-medium text-accent-foreground">
-              <Github className="h-4 w-4" /> The marketplace built for developers
-            </span>
-            <h1 className="text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
-              Your code is your{" "}
-              <span className="bg-gradient-to-r from-primary to-highlight bg-clip-text text-transparent">
-                resume.
-              </span>
+      <section className="px-4 pb-20 pt-32 md:pt-40">
+        <div className="mx-auto max-w-6xl">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-6xl">
+              Hire great freelancers.
+              <br />
+              <span className="text-primary">Get great work done.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              Connect GitHub and get a live profile that updates itself. Clients hire on real
-              projects, not PDFs. Flat 10% fee, paid within 24 hours.
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              Giggle connects businesses with independent professionals for projects of every size.
+              Transparent pricing, protected payments and no surprises.
             </p>
 
-            <form action="/browse" className="mt-8 flex max-w-xl items-center gap-2 rounded-2xl border border-border bg-card p-2 shadow-lg shadow-primary/5 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20">
-              <Search className="ml-2 h-5 w-5 shrink-0 text-muted-foreground" />
+            <form
+              action="/freelancers"
+              className="mt-10 flex max-w-2xl items-center gap-2 rounded-full border border-border bg-card p-1.5 pl-5 shadow-sm transition-shadow focus-within:border-primary focus-within:shadow-md"
+            >
+              <Search className="h-5 w-5 shrink-0 text-muted-foreground" />
               <input
                 name="q"
-                aria-label="Search developers"
-                placeholder="Try “Next.js”, “Rust”, “React Native”"
-                className="min-w-0 flex-1 bg-transparent py-2 text-base outline-none placeholder:text-muted-foreground"
+                aria-label="Search services"
+                placeholder="Try “logo design” or “React developer”"
+                className="min-w-0 flex-1 bg-transparent py-2.5 text-base outline-none placeholder:text-muted-foreground"
               />
-              <Button type="submit" size="default">Find developers</Button>
+              <Button type="submit" size="lg" className="h-11">Search</Button>
             </form>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Button asChild variant="highlight" size="lg">
-                <Link href="/signup">
-                  <Github /> Create profile with GitHub
+            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-muted-foreground">
+              <span>Popular:</span>
+              {["Web development", "Logo design", "Copywriting", "Video editing"].map((t) => (
+                <Link
+                  key={t}
+                  href={`/freelancers?q=${encodeURIComponent(t)}`}
+                  className="rounded-full border border-border px-3 py-1 text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                >
+                  {t}
                 </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/post-job">Post a project</Link>
-              </Button>
+              ))}
             </div>
-            <p className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-              <Check className="h-4 w-4 text-success" /> Free to join. No resume. No credit card.
-            </p>
-          </div>
-
-          {/* Live profile preview */}
-          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="rounded-3xl border border-border bg-card p-6 shadow-2xl shadow-primary/10">
-              <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-primary to-violet-500 text-lg font-bold text-primary-foreground">
-                  AK
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-1.5">
-                    <h3 className="truncate text-lg font-bold">Ayesha Khan</h3>
-                    <BadgeCheck className="h-5 w-5 shrink-0 text-primary" />
-                  </div>
-                  <p className="text-sm text-muted-foreground">Full-stack engineer · Remote</p>
-                </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-success/10 px-2.5 py-1 text-xs font-semibold text-success">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-                  </span>
-                  Live from GitHub
-                </span>
-              </div>
-
-              <div className="mt-5 grid grid-cols-3 gap-3 text-center">
-                {[
-                  ["48", "Repos"],
-                  ["1,203", "Commits / yr"],
-                  ["2.4k", "Stars"],
-                ].map(([v, l]) => (
-                  <div key={l} className="rounded-xl bg-secondary px-2 py-3">
-                    <p className="text-lg font-bold">{v}</p>
-                    <p className="text-xs text-muted-foreground">{l}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-5">
-                <div className="flex h-2 overflow-hidden rounded-full bg-muted">
-                  {languages.map((l) => (
-                    <div key={l.name} className={l.color} style={{ width: `${l.pct}%` }} />
-                  ))}
-                </div>
-                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
-                  {languages.map((l) => (
-                    <span key={l.name} className="flex items-center gap-1.5">
-                      <span className={`h-2 w-2 rounded-full ${l.color}`} />
-                      {l.name} {l.pct}%
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-5 space-y-3">
-                {repos.map((r) => (
-                  <div key={r.name} className="rounded-xl border border-border p-3.5 transition-colors hover:border-primary/40">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-sm font-semibold text-primary">{r.name}</span>
-                      <span className="text-xs text-muted-foreground">{r.lang}</span>
-                    </div>
-                    <p className="mt-1 text-sm text-muted-foreground">{r.desc}</p>
-                    <div className="mt-2 flex gap-4 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1"><Star className="h-3.5 w-3.5 text-warning" />{r.stars}</span>
-                      <span className="flex items-center gap-1"><GitFork className="h-3.5 w-3.5" />{r.forks}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-5 flex items-center justify-between">
-                <div>
-                  <p className="text-xs text-muted-foreground">Rate</p>
-                  <p className="text-lg font-bold">$55<span className="text-sm font-medium text-muted-foreground">/hr</span></p>
-                </div>
-                <Button>Hire Ayesha</Button>
-              </div>
-            </div>
-            <p className="mt-3 text-center text-xs text-muted-foreground">Sample profile</p>
           </div>
         </div>
       </section>
 
-      {/* Value strip */}
-      <section className="border-y border-border bg-card px-4 py-10">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 md:grid-cols-4">
+      {/* Promises */}
+      <section className="border-y border-border bg-secondary/50 px-4 py-8">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-3">
           {[
-            [FileX2, "0 resumes", "Your repos do the talking"],
-            [Wallet, "10% flat fee", "Keep 90% of what you earn"],
-            [Zap, "24h payouts", "No long payment holds"],
-            [Lock, "Escrow", "Pay only when work is approved"],
+            [Wallet, "Flat 10% fee", "One simple rate. No hidden charges."],
+            [ShieldCheck, "Escrow protection", "You only pay for work you approve."],
+            [Zap, "24-hour payouts", "Freelancers are paid within a day."],
           ].map(([Icon, title, sub]) => {
             const I = Icon as typeof Zap;
             return (
-              <div key={title as string} className="flex items-start gap-3">
-                <span className="rounded-xl bg-accent p-2.5 text-primary"><I className="h-5 w-5" /></span>
+              <div key={title as string} className="flex items-center gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                  <I className="h-5 w-5" />
+                </span>
                 <div>
-                  <p className="font-bold">{title as string}</p>
+                  <p className="font-semibold">{title as string}</p>
                   <p className="text-sm text-muted-foreground">{sub as string}</p>
                 </div>
               </div>
@@ -204,31 +121,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section id="how-it-works" className="scroll-mt-20 px-4 py-24">
+      {/* Categories */}
+      <section className="px-4 py-24">
         <div className="mx-auto max-w-6xl">
-          <div className="mx-auto mb-14 max-w-2xl text-center">
-            <h2 className="text-3xl font-bold md:text-4xl">Simple for both sides</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              No keyword-stuffed resumes, no guessing. Proof of skill is already public.
-            </p>
+          <div className="mb-10 flex items-end justify-between gap-6">
+            <div>
+              <h2 className="text-3xl font-bold md:text-4xl">Browse by category</h2>
+              <p className="mt-3 text-muted-foreground">Find the right specialist for whatever you&apos;re building.</p>
+            </div>
+            <Link href="/freelancers" className="hidden items-center gap-1 text-sm font-medium text-primary hover:underline sm:flex">
+              All categories <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {categories.map(({ icon: Icon, name, sub }) => (
+              <Link
+                key={name}
+                href={`/freelancers?q=${encodeURIComponent(name)}`}
+                className="group rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/50 hover:bg-accent/40"
+              >
+                <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <p className="font-semibold">{name}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{sub}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section id="how-it-works" className="scroll-mt-20 bg-secondary/50 px-4 py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-12 max-w-2xl">
+            <h2 className="text-3xl font-bold md:text-4xl">How Giggle works</h2>
+            <p className="mt-3 text-muted-foreground">A straightforward process for both sides of the table.</p>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-2">
             {([
-              ["For developers", steps.developers, "bg-primary"],
-              ["For clients", steps.clients, "bg-highlight"],
-            ] as const).map(([title, list, dot]) => (
-              <div key={title} className="rounded-3xl border border-border bg-card p-8 shadow-sm">
+              ["For clients", steps.clients],
+              ["For freelancers", steps.freelancers],
+            ] as const).map(([title, list]) => (
+              <div key={title} className="rounded-3xl border border-border bg-card p-8">
                 <h3 className="mb-6 text-xl font-bold">{title}</h3>
                 <ol className="space-y-6">
-                  {list.map((s, i) => (
-                    <li key={s.title} className="flex gap-4">
-                      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold ${dot} ${dot === "bg-primary" ? "text-primary-foreground" : "text-highlight-foreground"}`}>
+                  {list.map(([t, text], i) => (
+                    <li key={t} className="flex gap-4">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-accent-foreground">
                         {i + 1}
                       </span>
                       <div>
-                        <p className="font-semibold">{s.title}</p>
-                        <p className="mt-1 text-muted-foreground">{s.text}</p>
+                        <p className="font-semibold">{t}</p>
+                        <p className="mt-1 text-muted-foreground">{text}</p>
                       </div>
                     </li>
                   ))}
@@ -239,78 +184,90 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="bg-card px-4 py-24">
+      {/* Talent */}
+      <section className="px-4 py-24">
         <div className="mx-auto max-w-6xl">
-          <div className="mx-auto mb-14 max-w-2xl text-center">
-            <h2 className="text-3xl font-bold md:text-4xl">Trust you can verify</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Every claim on a Giggle profile links back to code you can read.
-            </p>
+          <div className="mb-10 max-w-2xl">
+            <h2 className="text-3xl font-bold md:text-4xl">Talent ready to start</h2>
+            <p className="mt-3 text-muted-foreground">Example profiles, showing what you&apos;ll see when you search.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {[
-              [GitCommitHorizontal, "Live activity", "Commits, languages and pinned projects sync automatically, so profiles are never stale."],
-              [ShieldCheck, "Verified ownership", "Developers sign in with GitHub, so the repos on a profile are provably theirs."],
-              [Search, "Search by real stack", "Find developers by the languages and frameworks they actually ship, not by buzzwords."],
-            ].map(([Icon, title, text]) => {
-              const I = Icon as typeof Zap;
-              return (
-                <div key={title as string} className="rounded-2xl border border-border bg-background p-6 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10">
-                  <span className="mb-4 inline-flex rounded-xl bg-accent p-3 text-primary"><I className="h-6 w-6" /></span>
-                  <h3 className="text-lg font-bold">{title as string}</h3>
-                  <p className="mt-2 text-muted-foreground">{text as string}</p>
+            {talent.map((t) => (
+              <article key={t.name} className="rounded-2xl border border-border bg-card p-6">
+                <div className="flex items-center gap-4">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent font-display text-lg font-bold text-accent-foreground">
+                    {t.initials}
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="flex items-center gap-1.5 font-bold">
+                      {t.name} <BadgeCheck className="h-4 w-4 text-primary" aria-label="Verified" />
+                    </h3>
+                    <p className="text-sm text-muted-foreground">{t.role}</p>
+                  </div>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Comparison */}
-      <section id="pricing" className="scroll-mt-20 px-4 py-24">
-        <div className="mx-auto max-w-4xl">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <h2 className="text-3xl font-bold md:text-4xl">Giggle vs. the old way</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Resume sites and general marketplaces weren&apos;t built for developers. We were.
-            </p>
-          </div>
-          <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
-            <div className="grid grid-cols-[1fr_1.2fr_1.2fr] bg-secondary px-5 py-4 text-sm font-semibold">
-              <span />
-              <span className="text-primary">Giggle</span>
-              <span className="text-muted-foreground">Resume sites &amp; marketplaces</span>
-            </div>
-            {compare.map((r) => (
-              <div key={r.label} className="grid grid-cols-[1fr_1.2fr_1.2fr] items-center gap-3 border-t border-border px-5 py-4 text-sm">
-                <span className="font-medium">{r.label}</span>
-                <span className="flex items-start gap-2 font-medium">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-success" /> {r.giggle}
-                </span>
-                <span className="flex items-start gap-2 text-muted-foreground">
-                  <X className="mt-0.5 h-4 w-4 shrink-0 text-destructive/70" /> {r.other}
-                </span>
-              </div>
+                <div className="mt-6 flex items-center justify-between border-t border-border pt-4 text-sm">
+                  <span className="flex items-center gap-1.5 font-medium">
+                    <Star className="h-4 w-4 fill-warning text-warning" /> {t.rating}
+                    <span className="font-normal text-muted-foreground">({t.jobs} projects)</span>
+                  </span>
+                  <span className="font-semibold">${t.rate}<span className="font-normal text-muted-foreground">/hr</span></span>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Trust / pricing */}
+      <section id="pricing" className="scroll-mt-20 bg-secondary/50 px-4 py-24">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h2 className="text-3xl font-bold md:text-4xl">Simple, honest pricing</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Joining is free. We take a flat 10% only when a project is completed. Clients pay
+              no service fees on top.
+            </p>
+            <ul className="mt-8 space-y-3">
+              {[
+                "Free to post a project or create a profile",
+                "Payments held safely in escrow until you approve",
+                "Freelancers keep 90% and are paid within 24 hours",
+                "Built-in messaging and file sharing",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-3">
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-success" />
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-3xl border border-border bg-card p-8">
+            <p className="text-sm font-medium text-muted-foreground">Example: a $1,000 project</p>
+            <dl className="mt-6 space-y-4">
+              <div className="flex justify-between"><dt className="text-muted-foreground">Client pays</dt><dd className="font-semibold">$1,000</dd></div>
+              <div className="flex justify-between"><dt className="text-muted-foreground">Giggle fee (10%)</dt><dd className="font-semibold">−$100</dd></div>
+              <div className="flex justify-between border-t border-border pt-4 text-lg"><dt className="font-semibold">Freelancer receives</dt><dd className="font-bold text-primary">$900</dd></div>
+            </dl>
+            <p className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
+              <MessageSquare className="h-4 w-4" /> No subscriptions or hidden charges.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="px-4 pb-24">
-        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-violet-600 px-6 py-16 text-center text-primary-foreground md:px-12">
-          <div aria-hidden className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
-          <h2 className="relative text-3xl font-bold md:text-5xl">Stop writing resumes. Start shipping.</h2>
-          <p className="relative mx-auto mt-4 max-w-xl text-lg text-primary-foreground/80">
-            Connect GitHub in one click and let your work get you hired.
+      <section className="px-4 py-24">
+        <div className="mx-auto max-w-6xl rounded-3xl bg-primary px-6 py-16 text-center text-primary-foreground md:px-12">
+          <h2 className="text-3xl font-bold md:text-4xl">Ready to get started?</h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg opacity-85">
+            Post a project in minutes, or create a profile and start finding work.
           </p>
-          <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button asChild variant="highlight" size="lg">
-              <Link href="/signup">Sign up free <ArrowRight /></Link>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+              <Link href="/post-job">Post a project</Link>
             </Button>
-            <Button asChild size="lg" className="bg-white/15 text-primary-foreground shadow-none hover:bg-white/25">
-              <Link href="/post-job">Hire a developer</Link>
+            <Button asChild size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+              <Link href="/signup">Become a freelancer</Link>
             </Button>
           </div>
         </div>

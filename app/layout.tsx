@@ -1,24 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import { Providers } from "@/components/providers";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
+const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Giggle | Your code is your resume",
-  description: "Hire developers by their real GitHub work. Developers get a live profile, no resume. Flat 10% fee.",
+  title: "Giggle | Hire top freelancers, get paid securely",
+  description: "Giggle is a freelance marketplace. Post a project and hire vetted independent talent, or find work you love. Flat 10% fee, escrow-protected payments.",
 };
 
 export default function RootLayout({
@@ -29,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${manrope.variable} antialiased`}
       >
         <Providers>
           <div className="relative flex min-h-screen flex-col bg-background">

@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Linkedin, Github, Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/layout/Logo";
 
 export function Footer() {
   return (
-    <footer className="bg-background border-t border-border/50">
+    <footer className="bg-secondary/40 border-t border-border">
       {/* Main Footer */}
       <div className="max-w-6xl mx-auto px-4 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -13,7 +13,7 @@ export function Footer() {
           <div>
             <Logo className="mb-6" />
             <p className="text-muted-foreground text-sm mb-6 max-w-xs">
-              The platform built for developers and clients. Your live GitHub work is your resume.
+              A freelance marketplace where businesses and independent professionals do great work together.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -32,10 +32,6 @@ export function Footer() {
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </a>
             </div>
           </div>
 
@@ -45,7 +41,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link href="/browse" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                  Find Developers
+                  Find Talent
                 </Link>
               </li>
               <li>
@@ -73,7 +69,7 @@ export function Footer() {
 
           {/* For Developers */}
           <div>
-            <h3 className="font-bold text-foreground mb-4">For Developers</h3>
+            <h3 className="font-bold text-foreground mb-4">For Freelancers</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/find-work" className="text-muted-foreground hover:text-primary transition-colors text-sm">
@@ -82,7 +78,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/create-profile" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                  Create GitHub Profile
+                  Create a Profile
                 </Link>
               </li>
               <li>
@@ -113,9 +109,9 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Your email"
-                className="min-w-0 flex-1 h-10 px-3 rounded-l-xl bg-card border-border border border-r-0 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm"
+                className="min-w-0 flex-1 h-10 px-3 rounded-l-full pl-4 bg-card border-border border border-r-0 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm"
               />
-              <Button className="rounded-l-none">
+              <Button className="rounded-l-none rounded-r-full">
                 Subscribe
               </Button>
             </div>
@@ -138,7 +134,7 @@ export function Footer() {
       </div>
 
       {/* Bottom Footer */}
-      <div className="border-t border-border/50 py-6 px-4">
+      <div className="border-t border-border py-6 px-4">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Giggle. All rights reserved.</p>
           <div className="flex flex-wrap gap-6 mt-4 md:mt-0">
