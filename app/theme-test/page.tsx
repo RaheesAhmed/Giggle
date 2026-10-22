@@ -26,7 +26,7 @@ export default function ThemeTestPage() {
       <div className="flex justify-between items-center mb-8">
         <div className="flex items-center gap-2">
           <Sparkles className="h-8 w-8 text-primary" />
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Giggle Theme</h1>
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-highlight bg-clip-text text-transparent">Giggle Theme</h1>
         </div>
         <ThemeToggle />
       </div>
@@ -53,10 +53,10 @@ export default function ThemeTestPage() {
               <div className="flex gap-2">
                 <div className="flex items-center gap-1 text-xs bg-secondary rounded-full px-3 py-1">
                   <span className="block w-2 h-2 rounded-full bg-primary"></span>
-                  <span>#6c63ff</span>
+                  <span>#5b4fe9</span>
                 </div>
                 <div className="flex items-center gap-1 text-xs bg-secondary rounded-full px-3 py-1">
-                  <span className="block w-2 h-2 rounded-full bg-accent"></span>
+                  <span className="block w-2 h-2 rounded-full bg-highlight"></span>
                   <span>#ff6b6b</span>
                 </div>
               </div>
@@ -71,7 +71,7 @@ export default function ThemeTestPage() {
         <Card>
           <CardHeader className="border-b border-border pb-4">
             <div className="flex items-center gap-2">
-              <Zap className="h-5 w-5 text-accent" />
+              <Zap className="h-5 w-5 text-highlight" />
               <CardTitle>Color Palette</CardTitle>
             </div>
             <CardDescription>Distinctive Giggle colors</CardDescription>
@@ -84,7 +84,7 @@ export default function ThemeTestPage() {
                   <span>Primary (Purple)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-md bg-accent"></div>
+                  <div className="w-6 h-6 rounded-md bg-highlight"></div>
                   <span>Accent (Coral)</span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -121,7 +121,7 @@ export default function ThemeTestPage() {
               <CheckCircle className="h-4 w-4 text-primary" />
               <span>Original branding</span>
             </div>
-            <Badge className="bg-accent hover:bg-accent/90">Giggle Design</Badge>
+            <Badge className="bg-highlight hover:bg-highlight/90">Giggle Design</Badge>
           </CardFooter>
         </Card>
       </div>

@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Giggle",
-  description: "Fiverr Alternative with 10% fee",
+  title: "Giggle | Your code is your resume",
+  description: "Hire developers by their real GitHub work. Developers get a live profile, no resume. Flat 10% fee.",
 };
 
 export default function RootLayout({

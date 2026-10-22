@@ -25,6 +25,10 @@
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
+  --color-highlight-foreground: var(--highlight-foreground);
+  --color-highlight: var(--highlight);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -49,31 +53,39 @@
 
   /* Base Colors */
   --background: #f8f9fc;
-  --foreground: #2d3142;
+  --foreground: #1b1b3a;
 
   /* Card */
   --card: #ffffff;
-  --card-foreground: #2d3142;
+  --card-foreground: #1b1b3a;
 
   /* Popover */
   --popover: #ffffff;
-  --popover-foreground: #2d3142;
+  --popover-foreground: #1b1b3a;
 
-  /* Primary - Giggle Purple */
-  --primary: #6c63ff;
+  /* Primary - Giggle Violet (white text 5.6:1) */
+  --primary: #5b4fe9;
   --primary-foreground: #ffffff;
 
   /* Secondary */
   --secondary: #f0f2f8;
-  --secondary-foreground: #4f5575;
+  --secondary-foreground: #3d4263;
 
   /* Muted */
   --muted: #ecedf3;
-  --muted-foreground: #7b82a2;
+  --muted-foreground: #6b7194;
 
-  /* Accent - Giggle Coral */
-  --accent: #ff6b6b;
-  --accent-foreground: #ffffff;
+  /* Accent - soft violet tint used for hovers and selected states */
+  --accent: #eeecff;
+  --accent-foreground: #3f33c9;
+
+  /* Highlight - Giggle Coral, one per screen (main call to action) */
+  --highlight: #ff6b6b;
+  --highlight-foreground: #1b1b3a;
+
+  /* Status */
+  --success: #047857;
+  --warning: #f5a524;
 
   /* Destructive */
   --destructive: #ff4757;
@@ -82,24 +94,24 @@
   /* Border & Input */
   --border: #e4e6f0;
   --input: #e4e6f0;
-  --ring: #6c63ff;
+  --ring: #5b4fe9;
 
   /* Charts */
-  --chart-1: #6c63ff;
-  --chart-2: #4d43ff;
+  --chart-1: #5b4fe9;
+  --chart-2: #8b5cf6;
   --chart-3: #ff6b6b;
   --chart-4: #4ecdc4;
   --chart-5: #ffbe0b;
 
   /* Sidebar */
   --sidebar: #ffffff;
-  --sidebar-foreground: #2d3142;
-  --sidebar-primary: #6c63ff;
+  --sidebar-foreground: #1b1b3a;
+  --sidebar-primary: #5b4fe9;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f0f2f8;
-  --sidebar-accent-foreground: #6c63ff;
+  --sidebar-accent: #eeecff;
+  --sidebar-accent-foreground: #3f33c9;
   --sidebar-border: #e4e6f0;
-  --sidebar-ring: #6c63ff;
+  --sidebar-ring: #5b4fe9;
 }
 
 @layer base {
@@ -108,5 +120,11 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  h1, h2, h3 {
+    @apply text-balance tracking-tight;
+  }
+  html {
+    scroll-behavior: smooth;
   }
 }

@@ -1,77 +1,47 @@
 import Link from "next/link";
+import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Search, Menu } from "lucide-react";
+import { Logo } from "@/components/layout/Logo";
+import { MobileNav } from "@/components/layout/MobileNav";
+import { navLinks } from "@/components/layout/nav-links";
 
 export function Header() {
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4">
-      <div className="mx-auto flex h-16 max-w-screen-2xl items-center">
-        {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2 mr-8">
-          <div className="flex items-center">
-            <div className="relative">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg">
-                G
-              </div>
-              <Sparkles className="absolute -top-1 -right-1 h-3 w-3 text-accent" />
-            </div>
-            <div className="ml-2 font-extrabold text-xl">
-              <span className="text-primary">Gig</span>
-              <span className="text-accent">gle</span>
-            </div>
-          </div>
-        </Link>
+    <header className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-lg">
+      <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4">
+        <Logo className="mr-4" />
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center flex-1">
-          {/* Main Nav */}
-          <nav className="flex items-center gap-1">
+        <nav className="hidden items-center gap-1 md:flex">
+          {navLinks.map((link) => (
             <Link
-              href="/browse"
-              className="px-3 py-2 rounded-lg text-foreground/70 hover:text-primary hover:bg-primary/5 transition-colors font-medium"
+              key={link.href}
+              href={link.href}
+              className="rounded-lg px-3 py-2 text-sm font-medium text-foreground/70 transition-colors hover:bg-accent hover:text-accent-foreground"
             >
-              Browse Jobs
+              {link.label}
             </Link>
-            <Link
-              href="/post-job"
-              className="px-3 py-2 rounded-lg text-foreground/70 hover:text-primary hover:bg-primary/5 transition-colors font-medium"
-            >
-              Post a Job
-            </Link>
-            <Link
-              href="/freelancers"
-              className="px-3 py-2 rounded-lg text-foreground/70 hover:text-primary hover:bg-primary/5 transition-colors font-medium"
-            >
-              Find Freelancers
-            </Link>
-          </nav>
+          ))}
+        </nav>
 
-          {/* Search Bar */}
-          <div className="relative mx-4 flex-1 max-w-md">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Search for services..."
-                className="w-full h-9 pl-9 pr-4 rounded-full bg-secondary/80 border-border/50 border focus:outline-none focus:ring-1 focus:ring-primary/50 text-sm"
-              />
-            </div>
-          </div>
-        </div>
+        <form action="/browse" className="relative ml-auto hidden max-w-xs flex-1 lg:block">
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <input
+            type="search"
+            name="q"
+            placeholder="Search skills, stacks, projects"
+            aria-label="Search"
+            className="h-10 w-full rounded-xl border border-border bg-card pl-9 pr-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+          />
+        </form>
 
-        {/* Mobile Menu Button */}
-        <button className="md:hidden p-2 rounded-lg text-foreground/70 hover:text-primary hover:bg-primary/5 transition-colors">
-          <Menu className="h-5 w-5" />
-        </button>
-
-        {/* Auth Buttons */}
-        <div className="hidden md:flex items-center gap-2">
-          <Button asChild variant="ghost" className="text-foreground/70 hover:text-primary hover:bg-primary/5">
-            <Link href="/login">Login</Link>
+        <div className="ml-auto flex items-center gap-2 lg:ml-0">
+          <Button asChild variant="ghost" className="hidden md:inline-flex">
+            <Link href="/login">Log in</Link>
           </Button>
-          <Button asChild className="bg-primary hover:bg-primary/90 text-white shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30 transition-all">
-            <Link href="/signup">Sign Up</Link>
+          <Button asChild className="hidden md:inline-flex">
+            <Link href="/signup">Sign up free</Link>
           </Button>
+          <MobileNav />
         </div>
       </div>
     </header>

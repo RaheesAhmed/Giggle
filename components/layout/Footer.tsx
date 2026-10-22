@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Sparkles, Facebook, Twitter, Instagram, Linkedin, Github, Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Github, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/layout/Logo";
 
 export function Footer() {
   return (
@@ -10,22 +11,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Column */}
           <div>
-            <Link href="/" className="flex items-center space-x-2 mb-6">
-              <div className="flex items-center">
-                <div className="relative">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg">
-                    G
-                  </div>
-                  <Sparkles className="absolute -top-1 -right-1 h-3 w-3 text-accent" />
-                </div>
-                <div className="ml-2 font-extrabold text-xl">
-                  <span className="text-primary">Gig</span>
-                  <span className="text-accent">gle</span>
-                </div>
-              </div>
-            </Link>
+            <Logo className="mb-6" />
             <p className="text-muted-foreground text-sm mb-6 max-w-xs">
-              Connecting exceptional talent with amazing projects at half the commission. The smarter freelance marketplace.
+              The platform built for developers and clients. Your live GitHub work is your resume.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -57,7 +45,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link href="/browse" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                  Find Freelancers
+                  Find Developers
                 </Link>
               </li>
               <li>
@@ -83,9 +71,9 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* For Freelancers */}
+          {/* For Developers */}
           <div>
-            <h3 className="font-bold text-foreground mb-4">For Freelancers</h3>
+            <h3 className="font-bold text-foreground mb-4">For Developers</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/find-work" className="text-muted-foreground hover:text-primary transition-colors text-sm">
@@ -94,7 +82,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/create-profile" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                  Create Profile
+                  Create GitHub Profile
                 </Link>
               </li>
               <li>
@@ -121,13 +109,13 @@ export function Footer() {
             <p className="text-muted-foreground text-sm mb-4">
               Subscribe to our newsletter for tips, new features, and updates.
             </p>
-            <div className="flex mb-6">
+            <div className="flex mb-6 max-w-full">
               <input
                 type="email"
                 placeholder="Your email"
-                className="flex-1 h-10 px-3 rounded-l-lg bg-secondary/80 border-border/50 border focus:outline-none focus:ring-1 focus:ring-primary/50 text-sm"
+                className="min-w-0 flex-1 h-10 px-3 rounded-l-xl bg-card border-border border border-r-0 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm"
               />
-              <Button className="rounded-l-none bg-primary hover:bg-primary/90">
+              <Button className="rounded-l-none">
                 Subscribe
               </Button>
             </div>
