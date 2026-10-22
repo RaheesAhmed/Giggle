@@ -56,7 +56,7 @@ export default function Home() {
       <section className="relative overflow-hidden px-4 pb-20 pt-32 md:pt-36">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_70%_0%,rgba(91,79,233,0.12),transparent),radial-gradient(40%_40%_at_0%_30%,rgba(255,107,107,0.08),transparent)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_70%_0%,color-mix(in_srgb,var(--primary)_16%,transparent),transparent),radial-gradient(40%_40%_at_0%_30%,color-mix(in_srgb,var(--highlight)_10%,transparent),transparent)]"
         />
         <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
           <div className="min-w-0">
@@ -65,7 +65,7 @@ export default function Home() {
             </span>
             <h1 className="text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
               Your code is your{" "}
-              <span className="bg-gradient-to-r from-primary to-violet-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-highlight bg-clip-text text-transparent">
                 resume.
               </span>
             </h1>
@@ -104,7 +104,7 @@ export default function Home() {
           <div className="relative mx-auto w-full max-w-md lg:max-w-none">
             <div className="rounded-3xl border border-border bg-card p-6 shadow-2xl shadow-primary/10">
               <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-primary to-violet-500 text-lg font-bold text-white">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-primary to-violet-500 text-lg font-bold text-primary-foreground">
                   AK
                 </div>
                 <div className="min-w-0 flex-1">
@@ -114,7 +114,7 @@ export default function Home() {
                   </div>
                   <p className="text-sm text-muted-foreground">Full-stack engineer · Remote</p>
                 </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-success">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-success/10 px-2.5 py-1 text-xs font-semibold text-success">
                   <span className="relative flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
@@ -223,7 +223,7 @@ export default function Home() {
                 <ol className="space-y-6">
                   {list.map((s, i) => (
                     <li key={s.title} className="flex gap-4">
-                      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold ${dot} ${dot === "bg-primary" ? "text-white" : "text-highlight-foreground"}`}>
+                      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold ${dot} ${dot === "bg-primary" ? "text-primary-foreground" : "text-highlight-foreground"}`}>
                         {i + 1}
                       </span>
                       <div>
@@ -299,17 +299,17 @@ export default function Home() {
 
       {/* CTA */}
       <section className="px-4 pb-24">
-        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-violet-600 px-6 py-16 text-center text-white md:px-12">
+        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-violet-600 px-6 py-16 text-center text-primary-foreground md:px-12">
           <div aria-hidden className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
           <h2 className="relative text-3xl font-bold md:text-5xl">Stop writing resumes. Start shipping.</h2>
-          <p className="relative mx-auto mt-4 max-w-xl text-lg text-white/80">
+          <p className="relative mx-auto mt-4 max-w-xl text-lg text-primary-foreground/80">
             Connect GitHub in one click and let your work get you hired.
           </p>
           <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild variant="highlight" size="lg">
               <Link href="/signup">Sign up free <ArrowRight /></Link>
             </Button>
-            <Button asChild size="lg" className="bg-white/15 text-white shadow-none hover:bg-white/25">
+            <Button asChild size="lg" className="bg-white/15 text-primary-foreground shadow-none hover:bg-white/25">
               <Link href="/post-job">Hire a developer</Link>
             </Button>
           </div>

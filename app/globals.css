@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -114,6 +116,45 @@
   --sidebar-ring: #5b4fe9;
 }
 
+.dark {
+  --background: #0d0e1f;
+  --foreground: #eceefb;
+  --card: #151730;
+  --card-foreground: #eceefb;
+  --popover: #151730;
+  --popover-foreground: #eceefb;
+  --primary: #8b82ff;
+  --primary-foreground: #0d0e1f;
+  --secondary: #1c1f3d;
+  --secondary-foreground: #c9ccee;
+  --muted: #1c1f3d;
+  --muted-foreground: #9a9fc8;
+  --accent: #26285a;
+  --accent-foreground: #d4d0ff;
+  --highlight: #ff7a7a;
+  --highlight-foreground: #1b1b3a;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --destructive: #ff6b78;
+  --destructive-foreground: #ffffff;
+  --border: #2a2d57;
+  --input: #2a2d57;
+  --ring: #8b82ff;
+  --chart-1: #8b82ff;
+  --chart-2: #a78bfa;
+  --chart-3: #ff7a7a;
+  --chart-4: #4ecdc4;
+  --chart-5: #ffbe0b;
+  --sidebar: #151730;
+  --sidebar-foreground: #eceefb;
+  --sidebar-primary: #8b82ff;
+  --sidebar-primary-foreground: #0d0e1f;
+  --sidebar-accent: #26285a;
+  --sidebar-accent-foreground: #d4d0ff;
+  --sidebar-border: #2a2d57;
+  --sidebar-ring: #8b82ff;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -126,5 +167,10 @@
   }
   html {
     scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }

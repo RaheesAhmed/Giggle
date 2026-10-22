@@ -34,7 +34,7 @@ export function MobileNav() {
             </SheetClose>
           ))}
         </nav>
-        <div className="mt-6 flex flex-col gap-3">
+        <div className="mt-6 flex flex-col gap-3 px-1">
           <SheetClose asChild>
             <Button asChild variant="outline" size="lg">
               <Link href="/login">Log in</Link>
